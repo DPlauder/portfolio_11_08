@@ -84,12 +84,12 @@ export default function Component() {
             >
               Skills
             </Link>
-            <Link
+            {/* <Link
               href="#projects"
               className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
             >
               Projekte
-            </Link>
+            </Link> */}
             <Link
               href="#contact"
               className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
@@ -115,7 +115,7 @@ export default function Component() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="hero" className="w-full py-16 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 dark:from-slate-900 dark:via-slate-850 dark:to-slate-800 relative overflow-hidden">
+  <section id="hero" className="w-full py-16 md:py-24 lg:py-32 xl:py-48 bg-background dark:bg-background relative overflow-hidden">
           {/* Subtle texture overlay */}
           <div
             className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
@@ -172,9 +172,8 @@ export default function Component() {
                   </a>
                   <a href="https://github.com/dplauder" target="_blank" rel="noopener noreferrer">
                     <Button
-                      variant="outline"
                       size="lg"
-                      className="border-slate-300 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-600 dark:hover:border-slate-500 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 hover:shadow-lg bg-transparent"
+                      className="bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-900 hover:to-slate-950 dark:from-slate-700 dark:to-slate-800 dark:hover:from-slate-600 dark:hover:to-slate-700 text-white border-0 transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-md"
                     >
                       <Github className="mr-2 h-5 w-5" />
                       GitHub ansehen
@@ -204,7 +203,7 @@ export default function Component() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-white dark:bg-slate-900 relative">
+  <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-slate-300 dark:bg-slate-700"></div>
 
           <div className="container px-4 md:px-6">
@@ -223,7 +222,7 @@ export default function Component() {
                   Über mich
                 </h2>
                 <p className="max-w-[900px] text-slate-600 dark:text-slate-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Als erfahrener Applikationsentwickler bringe ich technische Expertise und kreative Problemlösung
+                  Als ausgebildeter Applikationsentwickler bringe ich technische Expertise und kreative Problemlösung
                   zusammen. Meine Leidenschaft liegt in der Entwicklung benutzerfreundlicher und effizienter
                   Softwarelösungen.
                 </p>
@@ -239,13 +238,13 @@ export default function Component() {
                       !aboutFeature1Animated && "opacity-0"
                     )}
                   >
-                    <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-slate-400 dark:border-slate-600">
+                    <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-810transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-slate-400 dark:border-slate-600">
                       <div className="p-2 bg-slate-500 dark:bg-slate-600 rounded-lg">
                         <Globe className="h-5 w-5 text-white" />
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Frontend-Entwicklung</h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <p className="text-slate-600 dark:text-white mb-2">
                           Moderne React-Anwendungen mit TypeScript, Next.js und responsive Design
                         </p>
                       </div>
@@ -264,7 +263,7 @@ export default function Component() {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Backend-Entwicklung</h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <p className="text-slate-600 dark:text-white mb-2">
                           Skalierbare APIs mit Node.js, Express und Datenbank-Integration.
                         </p>
                       </div>
@@ -283,7 +282,7 @@ export default function Component() {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Cloud & DevOps</h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <p className="text-slate-600 dark:text-white mb-2">
                           Deployment und Wartung auf Docker, Kubernetes und CI/CD-Pipelines
                         </p>
                       </div>
@@ -300,7 +299,7 @@ export default function Component() {
               >
                 <div className="absolute inset-0 bg-slate-200 dark:bg-slate-700 rounded-xl blur-2xl opacity-20"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/placeholder.jpg?height=400&width=600"
                   width="600"
                   height="400"
                   alt="Entwickler Arbeitsplatz"
@@ -314,7 +313,7 @@ export default function Component() {
         {/* Skills Section */}
         <section
           id="skills"
-          className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 relative"
+          className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative"
         >
           {/* Subtle texture overlay */}
           <div
@@ -543,24 +542,6 @@ export default function Component() {
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300">
-                        <span>Vercel</span>
-                        <span>80%</span>
-                      </div>
-                      <div className="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                        <div className="bg-slate-600 h-2 rounded-full dark:bg-slate-400" style={{ width: "80%" }}></div>
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300">
-                        <span>Jest</span>
-                        <span>70%</span>
-                      </div>
-                      <div className="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                        <div className="bg-slate-600 h-2 rounded-full dark:bg-slate-400" style={{ width: "70%" }}></div>
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300">
                         <span>CI/CD</span>
                         <span>75%</span>
                       </div>
@@ -570,7 +551,7 @@ export default function Component() {
                     </div>
                     <div className="space-y-1">
                       <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300">
-                        <span>Express.js</span>
+                        <span>Agile Methods</span>
                         <span>85%</span>
                       </div>
                       <div className="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
@@ -584,8 +565,8 @@ export default function Component() {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-white dark:bg-slate-900 relative">
+        {/* Projects Section 
+  <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-stone-300 dark:bg-stone-700"></div>
 
           <div className="container px-4 md:px-6">
@@ -733,11 +714,11 @@ export default function Component() {
             </div>
           </div>
         </section>
-
+*/}
         {/* Contact Section */}
         <section
           id="contact"
-          className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 relative"
+          className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative"
         >
           {/* Subtle texture overlay */}
           <div
@@ -788,7 +769,7 @@ export default function Component() {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900 dark:text-white">E-Mail</p>
-                      <p className="text-slate-600 dark:text-slate-400">dominik.plauder@gmail.com</p>
+                      <p className="text-slate-600 dark:text-white mb-2">dominik.plauder@gmail.com</p>
                     </div>
                   </div>
                   <div
@@ -804,7 +785,7 @@ export default function Component() {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900 dark:text-white">Telefon</p>
-                      <p className="text-slate-600 dark:text-slate-400">+43 664 3424455</p>
+                      <p className="text-slate-600 dark:text-white mb-2">+43 664 3424455</p>
                     </div>
                   </div>
                   <div
@@ -820,7 +801,7 @@ export default function Component() {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900 dark:text-white">Standort</p>
-                      <p className="text-slate-600 dark:text-slate-400">Graz, Österreich</p>
+                      <p className="text-slate-600 dark:text-white">Graz, Österreich</p>
                     </div>
                   </div>
                 </div>
