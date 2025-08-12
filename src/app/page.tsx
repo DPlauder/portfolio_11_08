@@ -1,12 +1,13 @@
 "use client"
 
 import type React from "react"
+import { Globe, Database } from "lucide-react" // Import Globe and Database icons
 
-import { Badge } from "@/components/ui/badge"
-
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Database, Globe, Mail, Phone, MapPin, Github, ExternalLink, Download } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Code, Download, Mail, Phone, MapPin, Github, ExternalLink, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -23,7 +24,8 @@ const smoothScrollStyles = `
   
 `
 
-export default function Component() {
+export default function Portfolio() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const myName = "Domink Plauder"
 
   // Hero Section Animations
@@ -56,6 +58,12 @@ export default function Component() {
   const { ref: contactInfo3Ref, hasAnimated: contactInfo3Animated } = useScrollAnimation()
   const { ref: contactButtonRef, hasAnimated: contactButtonAnimated } = useScrollAnimation()
 
+  const navItems = [
+    { href: "#about", label: "Über mich" },
+    { href: "#skills", label: "Skills" },
+    { href: "#contact", label: "Kontakt" },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <style jsx global>
@@ -73,34 +81,21 @@ export default function Component() {
               <span className="font-bold text-slate-900 dark:text-white animate-delay-100">{myName}</span>
             </Link>
           </div>
-          <nav className="flex items-center space-x-8 text-sm font-medium">
-            <Link
-              href="#about"
-              className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
-            >
-              Über mich
-            </Link>
-            <Link
-              href="#skills"
-              className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
-            >
-              Skills
-            </Link>
-            {/* <Link
-              href="#projects"
-              className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
-            >
-              Projekte
-            </Link> */}
-            <Link
-              href="#contact"
-              className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
-            >
-              Kontakt
-            </Link>
+
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative transition-all duration-300 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:scale-105 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-slate-400 hover:after:w-full after:transition-all after:duration-300"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
+
           <div className="flex items-center space-x-2">
-            <a href="/LL_Plauder_Dominik.pdf" download className="hidden sm:inline-block">
+            <a href="/LL_Plauder_Dominik.pdf" download className="hidden md:inline-block">
               <Button
                 variant="outline"
                 size="sm"
@@ -111,8 +106,60 @@ export default function Component() {
               </Button>
             </a>
             <ThemeToggle />
+
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm">
+            <div className="flex flex-col h-full">
+              {/* Keep original header visible */}
+              <div className="h-16 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b">
+                <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+                  <div className="flex">
+                    <Link href="#hero" className="mr-6 flex items-center space-x-2 group">
+                      <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-300 group-hover:scale-110 group-hover:bg-slate-200 dark:group-hover:bg-slate-700">
+                        <Code className="h-5 w-5" />
+                      </div>
+                      <span className="font-bold text-slate-900 dark:text-white">{myName}</span>
+                    </Link>
+                  </div>
+
+                  <div className="flex items-center space-x-2">
+                    <ThemeToggle />
+                    <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(false)}>
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation menu with solid background */}
+              <div className="flex-1 bg-white dark:bg-slate-900">
+                <nav className="flex flex-col items-center justify-center h-full space-y-8 px-4">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-3xl font-semibold text-slate-800 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white transition-colors py-4 hover:scale-105 transform duration-200"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="flex-1">
@@ -231,7 +278,7 @@ export default function Component() {
                     ref={aboutFeature1Ref as React.RefObject<HTMLLIElement>}
                     className={cn("group", !aboutFeature1Animated && "opacity-0")}
                   >
-                    <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-810transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-slate-400 dark:border-slate-600">
+                    <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-810 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-slate-400 dark:border-slate-600">
                       <div className="p-2 bg-slate-500 dark:bg-slate-600 rounded-lg">
                         <Globe className="h-5 w-5 text-white" />
                       </div>
@@ -333,7 +380,7 @@ export default function Component() {
               <Card
                 ref={skillsCard1Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
-                  "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-850 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
+                  "transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-850 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden",
                   !skillsCard1Animated && "opacity-0",
                 )}
               >
@@ -410,7 +457,7 @@ export default function Component() {
               <Card
                 ref={skillsCard2Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
-                  "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-stone-50 dark:from-slate-900 dark:to-stone-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
+                  "transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-gradient-to-br from-white to-stone-50 dark:from-slate-900 dark:to-stone-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden",
                   !skillsCard2Animated && "opacity-0",
                 )}
               >
@@ -478,7 +525,7 @@ export default function Component() {
               <Card
                 ref={skillsCard3Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
-                  "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-gray-50 dark:from-slate-900 dark:to-gray-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
+                  "transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-gradient-to-br from-white to-gray-50 dark:from-slate-900 dark:to-gray-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden",
                   !skillsCard3Animated && "opacity-0",
                 )}
               >
@@ -698,8 +745,7 @@ export default function Component() {
             </div>
           </div>
         </section>
-        */}
-
+*/}
         {/* Contact Section */}
         <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
           {/* Subtle texture overlay */}
