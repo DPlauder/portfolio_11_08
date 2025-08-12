@@ -1,16 +1,19 @@
 "use client"
 
+import type React from "react"
+
 import { Badge } from "@/components/ui/badge"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Database, Globe, Mail, Phone, MapPin, Github, ExternalLink, Download } from 'lucide-react'
+import { Code, Database, Globe, Mail, Phone, MapPin, Github, ExternalLink, Download } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { BackToTopButton } from "@/components/back-to-top-button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation" // Import the updated hook
 import { cn } from "@/lib/utils" // Import cn utility
+
+import { BackToTopButton } from "@/components/back-to-top-button"
 
 // Add smooth scroll styles and new animations
 const smoothScrollStyles = `
@@ -24,35 +27,34 @@ export default function Component() {
   const myName = "Domink Plauder"
 
   // Hero Section Animations
-  const { ref: heroTextRef, hasAnimated: heroTextAnimated } = useScrollAnimation();
-  const { ref: heroButtonsRef, hasAnimated: heroButtonsAnimated } = useScrollAnimation();
-  const { ref: heroImageRef, hasAnimated: heroImageAnimated } = useScrollAnimation();
+  const { ref: heroTextRef, hasAnimated: heroTextAnimated } = useScrollAnimation()
+  const { ref: heroButtonsRef, hasAnimated: heroButtonsAnimated } = useScrollAnimation()
+  const { ref: heroImageRef, hasAnimated: heroImageAnimated } = useScrollAnimation()
 
   // About Section Animations
-  const { ref: aboutHeaderRef, hasAnimated: aboutHeaderAnimated } = useScrollAnimation();
-  const { ref: aboutFeature1Ref, hasAnimated: aboutFeature1Animated } = useScrollAnimation();
-  const { ref: aboutFeature2Ref, hasAnimated: aboutFeature2Animated } = useScrollAnimation();
-  const { ref: aboutFeature3Ref, hasAnimated: aboutFeature3Animated } = useScrollAnimation();
-  const { ref: aboutImageRef, hasAnimated: aboutImageAnimated } = useScrollAnimation();
+  const { ref: aboutHeaderRef, hasAnimated: aboutHeaderAnimated } = useScrollAnimation()
+  const { ref: aboutFeature1Ref, hasAnimated: aboutFeature1Animated } = useScrollAnimation()
+  const { ref: aboutFeature2Ref, hasAnimated: aboutFeature2Animated } = useScrollAnimation()
+  const { ref: aboutFeature3Ref, hasAnimated: aboutFeature3Animated } = useScrollAnimation()
+  const { ref: aboutImageRef, hasAnimated: aboutImageAnimated } = useScrollAnimation()
 
   // Skills Section Animations
-  const { ref: skillsHeaderRef, hasAnimated: skillsHeaderAnimated } = useScrollAnimation();
-  const { ref: skillsCard1Ref, hasAnimated: skillsCard1Animated } = useScrollAnimation();
-  const { ref: skillsCard2Ref, hasAnimated: skillsCard2Animated } = useScrollAnimation();
-  const { ref: skillsCard3Ref, hasAnimated: skillsCard3Animated } = useScrollAnimation();
+  const { ref: skillsHeaderRef, hasAnimated: skillsHeaderAnimated } = useScrollAnimation()
+  const { ref: skillsCard1Ref, hasAnimated: skillsCard1Animated } = useScrollAnimation()
+  const { ref: skillsCard2Ref, hasAnimated: skillsCard2Animated } = useScrollAnimation()
+  const { ref: skillsCard3Ref, hasAnimated: skillsCard3Animated } = useScrollAnimation()
 
   // Projects Section Animations
-  const { ref: projectsHeaderRef, hasAnimated: projectsHeaderAnimated } = useScrollAnimation();
-  const { ref: projectCard1Ref, hasAnimated: projectCard1Animated } = useScrollAnimation();
-  const { ref: projectCard2Ref, hasAnimated: projectCard2Animated } = useScrollAnimation();
+  const { ref: projectsHeaderRef, hasAnimated: projectsHeaderAnimated } = useScrollAnimation()
+  const { ref: projectCard1Ref, hasAnimated: projectCard1Animated } = useScrollAnimation()
+  const { ref: projectCard2Ref, hasAnimated: projectCard2Animated } = useScrollAnimation()
 
   // Contact Section Animations
-  const { ref: contactHeaderRef, hasAnimated: contactHeaderAnimated } = useScrollAnimation();
-  const { ref: contactInfo1Ref, hasAnimated: contactInfo1Animated } = useScrollAnimation();
-  const { ref: contactInfo2Ref, hasAnimated: contactInfo2Animated } = useScrollAnimation();
-  const { ref: contactInfo3Ref, hasAnimated: contactInfo3Animated } = useScrollAnimation();
-  const { ref: contactButtonRef, hasAnimated: contactButtonAnimated } = useScrollAnimation();
-
+  const { ref: contactHeaderRef, hasAnimated: contactHeaderAnimated } = useScrollAnimation()
+  const { ref: contactInfo1Ref, hasAnimated: contactInfo1Animated } = useScrollAnimation()
+  const { ref: contactInfo2Ref, hasAnimated: contactInfo2Animated } = useScrollAnimation()
+  const { ref: contactInfo3Ref, hasAnimated: contactInfo3Animated } = useScrollAnimation()
+  const { ref: contactButtonRef, hasAnimated: contactButtonAnimated } = useScrollAnimation()
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -61,8 +63,8 @@ export default function Component() {
       </style>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-slate-900/80 shadow-sm">
-        <div className="container flex h-16 items-center ml-10 px-4 md:px-6">
-          <div className="mr-4 flex">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+          <div className="flex">
             <Link href="#hero" className="mr-6 flex items-center space-x-2 group">
               <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all duration-300 group-hover:scale-110 group-hover:bg-slate-200 dark:group-hover:bg-slate-700">
                 <Code className="h-5 w-5" />
@@ -97,7 +99,7 @@ export default function Component() {
               Kontakt
             </Link>
           </nav>
-          <div className="ml-auto flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <a href="/LL_Plauder_Dominik.pdf" download className="hidden sm:inline-block">
               <Button
                 variant="outline"
@@ -115,31 +117,28 @@ export default function Component() {
 
       <main className="flex-1">
         {/* Hero Section */}
-  <section id="hero" className="w-full py-16 md:py-24 lg:py-32 xl:py-48 bg-background dark:bg-background relative overflow-hidden">
+        <section
+          id="hero"
+          className="w-full py-16 md:py-24 lg:py-32 xl:py-48 bg-background dark:bg-background relative overflow-hidden"
+        >
           {/* Subtle texture overlay */}
           <div
-            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+            className="absolute inset-0 opacity-[0.015] dark:opacity-[0.02]"
             style={{
-              backgroundImage: `url("/placeholder.svg?height=200&width=200")`,
-              backgroundRepeat: "repeat",
-              backgroundSize: "200px",
-              backgroundBlendMode: "overlay",
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
-          ></div>
+          />
 
           {/* Background accent elements */}
           <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-slate-200/20 via-slate-100/15 to-transparent rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 left-20 w-96 h-96 bg-stone-200/20 via-stone-100/15 to-transparent rounded-full blur-3xl"></div>
 
-          <div className="container px-4 md:px-6 relative z-10">
+          <div className="container mx-auto w-full px-4 md:px-6 relative z-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-6">
                 <div
                   ref={heroTextRef as React.RefObject<HTMLDivElement>}
-                  className={cn(
-                    "space-y-4",
-                    !heroTextAnimated && "opacity-0"
-                  )}
+                  className={cn("space-y-4", !heroTextAnimated && "opacity-0")}
                 >
                   <div className="inline-block">
                     <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border-slate-200 dark:border-slate-700 px-4 py-2 text-sm font-medium">
@@ -156,10 +155,7 @@ export default function Component() {
                 </div>
                 <div
                   ref={heroButtonsRef as React.RefObject<HTMLDivElement>}
-                  className={cn(
-                    "flex flex-col gap-4 min-[400px]:flex-row",
-                    !heroButtonsAnimated && "opacity-0"
-                  )}
+                  className={cn("flex flex-col gap-4 min-[400px]:flex-row", !heroButtonsAnimated && "opacity-0")}
                 >
                   <a href="mailto:dominik.plauder@gmail.com">
                     <Button
@@ -193,7 +189,7 @@ export default function Component() {
                     className={cn(
                       "relative overflow-hidden rounded-xl object-contain bg-white transition-all duration-300 hover:scale-105 hover:shadow-xl border-4 border-white dark:border-slate-800 shadow-xl shadow-inner",
                       !heroImageAnimated && "opacity-0",
-                      heroImageAnimated && "animate-scroll-in-right animate-delay-100"
+                      heroImageAnimated && "animate-scroll-in-right animate-delay-100",
                     )}
                   />
                 </div>
@@ -203,15 +199,15 @@ export default function Component() {
         </section>
 
         {/* About Section */}
-  <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
+        <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900 relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-slate-300 dark:bg-slate-700"></div>
 
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div
               ref={aboutHeaderRef as React.RefObject<HTMLDivElement>}
               className={cn(
                 "flex flex-col items-center justify-center space-y-4 text-center mb-16",
-                !aboutHeaderAnimated && "opacity-0"
+                !aboutHeaderAnimated && "opacity-0",
               )}
             >
               <div className="space-y-4">
@@ -233,10 +229,7 @@ export default function Component() {
                 <ul className="grid gap-8">
                   <li
                     ref={aboutFeature1Ref as React.RefObject<HTMLLIElement>}
-                    className={cn(
-                      "group",
-                      !aboutFeature1Animated && "opacity-0"
-                    )}
+                    className={cn("group", !aboutFeature1Animated && "opacity-0")}
                   >
                     <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-810transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-slate-400 dark:border-slate-600">
                       <div className="p-2 bg-slate-500 dark:bg-slate-600 rounded-lg">
@@ -252,10 +245,7 @@ export default function Component() {
                   </li>
                   <li
                     ref={aboutFeature2Ref as React.RefObject<HTMLLIElement>}
-                    className={cn(
-                      "group",
-                      !aboutFeature2Animated && "opacity-0"
-                    )}
+                    className={cn("group", !aboutFeature2Animated && "opacity-0")}
                   >
                     <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-800 dark:to-stone-850 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-stone-400 dark:border-stone-600">
                       <div className="p-2 bg-stone-500 dark:bg-stone-600 rounded-lg">
@@ -271,10 +261,7 @@ export default function Component() {
                   </li>
                   <li
                     ref={aboutFeature3Ref as React.RefObject<HTMLLIElement>}
-                    className={cn(
-                      "group",
-                      !aboutFeature3Animated && "opacity-0"
-                    )}
+                    className={cn("group", !aboutFeature3Animated && "opacity-0")}
                   >
                     <div className="flex items-start space-x-4 p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-850 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border-l-4 border-gray-400 dark:border-gray-600">
                       <div className="p-2 bg-gray-500 dark:bg-gray-600 rounded-lg">
@@ -292,10 +279,7 @@ export default function Component() {
               </div>
               <div
                 ref={aboutImageRef as React.RefObject<HTMLDivElement>}
-                className={cn(
-                  "relative",
-                  !aboutImageAnimated && "opacity-0"
-                )}
+                className={cn("relative", !aboutImageAnimated && "opacity-0")}
               >
                 <div className="absolute inset-0 bg-slate-200 dark:bg-slate-700 rounded-xl blur-2xl opacity-20"></div>
                 <Image
@@ -311,10 +295,7 @@ export default function Component() {
         </section>
 
         {/* Skills Section */}
-        <section
-          id="skills"
-          className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative"
-        >
+        <section id="skills" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
           {/* Subtle texture overlay */}
           <div
             className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
@@ -328,12 +309,12 @@ export default function Component() {
 
           <div className="absolute top-0 left-0 w-full h-1 bg-slate-400 dark:bg-slate-600"></div>
 
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div
               ref={skillsHeaderRef as React.RefObject<HTMLDivElement>}
               className={cn(
                 "flex flex-col items-center justify-center space-y-4 text-center mb-16",
-                !skillsHeaderAnimated && "opacity-0"
+                !skillsHeaderAnimated && "opacity-0",
               )}
             >
               <div className="space-y-4">
@@ -353,7 +334,7 @@ export default function Component() {
                 ref={skillsCard1Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
                   "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-850 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
-                  !skillsCard1Animated && "opacity-0"
+                  !skillsCard1Animated && "opacity-0",
                 )}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-slate-400 dark:bg-slate-600"></div>
@@ -430,7 +411,7 @@ export default function Component() {
                 ref={skillsCard2Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
                   "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-stone-50 dark:from-slate-900 dark:to-stone-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
-                  !skillsCard2Animated && "opacity-0"
+                  !skillsCard2Animated && "opacity-0",
                 )}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-stone-400 dark:bg-stone-600"></div>
@@ -498,7 +479,7 @@ export default function Component() {
                 ref={skillsCard3Ref as React.RefObject<HTMLDivElement>}
                 className={cn(
                   "transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-br from-white to-gray-50 dark:from-slate-900 dark:to-gray-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden group",
-                  !skillsCard3Animated && "opacity-0"
+                  !skillsCard3Animated && "opacity-0",
                 )}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gray-400 dark:bg-gray-600"></div>
@@ -566,15 +547,18 @@ export default function Component() {
         </section>
 
         {/* Projects Section 
-  <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
+        <section
+          id="projects"
+          className="w-full py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900 relative overflow-hidden"
+        >
           <div className="absolute top-0 left-0 w-full h-1 bg-stone-300 dark:bg-stone-700"></div>
 
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div
               ref={projectsHeaderRef as React.RefObject<HTMLDivElement>}
               className={cn(
                 "flex flex-col items-center justify-center space-y-4 text-center mb-16",
-                !projectsHeaderAnimated && "opacity-0"
+                !projectsHeaderAnimated && "opacity-0",
               )}
             >
               <div className="space-y-4">
@@ -595,7 +579,7 @@ export default function Component() {
                 className={cn(
                   "transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-850 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden",
                   !projectCard1Animated && "opacity-0",
-                  projectCard1Animated && "animate-scroll-in-left"
+                  projectCard1Animated && "animate-scroll-in-left",
                 )}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-slate-400 dark:bg-slate-600"></div>
@@ -656,7 +640,7 @@ export default function Component() {
                 className={cn(
                   "transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-gradient-to-br from-white to-stone-50 dark:from-slate-900 dark:to-stone-900 border-slate-200 dark:border-slate-700 shadow-md shadow-inner overflow-hidden",
                   !projectCard2Animated && "opacity-0",
-                  projectCard2Animated && "animate-scroll-in-right animate-delay-100"
+                  projectCard2Animated && "animate-scroll-in-right animate-delay-100",
                 )}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-stone-400 dark:bg-stone-600"></div>
@@ -714,12 +698,10 @@ export default function Component() {
             </div>
           </div>
         </section>
-*/}
+        */}
+
         {/* Contact Section */}
-        <section
-          id="contact"
-          className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative"
-        >
+        <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-background dark:bg-background relative">
           {/* Subtle texture overlay */}
           <div
             className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
@@ -733,12 +715,12 @@ export default function Component() {
 
           <div className="absolute top-0 left-0 w-full h-1 bg-gray-400 dark:bg-gray-600"></div>
 
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div
               ref={contactHeaderRef as React.RefObject<HTMLDivElement>}
               className={cn(
                 "flex flex-col items-center justify-center space-y-4 text-center mb-16",
-                !contactHeaderAnimated && "opacity-0"
+                !contactHeaderAnimated && "opacity-0",
               )}
             >
               <div className="space-y-4">
@@ -761,7 +743,7 @@ export default function Component() {
                     className={cn(
                       "flex items-center space-x-6 p-6 rounded-xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-850 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg",
                       !contactInfo1Animated && "opacity-0",
-                      contactInfo1Animated && "animate-scroll-in-left"
+                      contactInfo1Animated && "animate-scroll-in-left",
                     )}
                   >
                     <div className="flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 transition-all duration-300 hover:scale-110">
@@ -777,7 +759,7 @@ export default function Component() {
                     className={cn(
                       "flex items-center space-x-6 p-6 rounded-xl bg-gradient-to-br from-white to-stone-50 dark:from-slate-900 dark:to-stone-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg",
                       !contactInfo2Animated && "opacity-0",
-                      contactInfo2Animated && "animate-scroll-in-left animate-delay-100"
+                      contactInfo2Animated && "animate-scroll-in-left animate-delay-100",
                     )}
                   >
                     <div className="flex items-center justify-center w-14 h-14 rounded-full bg-stone-100 dark:bg-stone-800 transition-all duration-300 hover:scale-110">
@@ -793,7 +775,7 @@ export default function Component() {
                     className={cn(
                       "flex items-center space-x-6 p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-900 dark:to-gray-900 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg",
                       !contactInfo3Animated && "opacity-0",
-                      contactInfo3Animated && "animate-scroll-in-left animate-delay-200"
+                      contactInfo3Animated && "animate-scroll-in-left animate-delay-200",
                     )}
                   >
                     <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-800 transition-all duration-300 hover:scale-110">
@@ -810,7 +792,7 @@ export default function Component() {
                   className={cn(
                     "flex justify-center",
                     !contactButtonAnimated && "opacity-0",
-                    contactButtonAnimated && "animate-scroll-in-right animate-delay-300"
+                    contactButtonAnimated && "animate-scroll-in-right animate-delay-300",
                   )}
                 >
                   <a href="https://github.com/dplauder" target="_blank" rel="noopener noreferrer">
@@ -829,11 +811,18 @@ export default function Component() {
         </section>
       </main>
       {/* Footer */}
-      <footer className="flex flex-col gap-2 sm:flex-row py-8 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gradient-to-r from-slate-900 to-slate-800 dark:from-black dark:to-slate-900 text-white">
-        <div className="w-full h-1 bg-slate-600 dark:bg-slate-700 mb-4"></div>
-        <p className="text-sm text-slate-300">
-          © {new Date().getFullYear()} {myName}. Alle Rechte vorbehalten.
-        </p>
+      <footer className="w-full py-8 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="flex items-center space-x-2">
+              <Code className="h-5 w-5 text-slate-600 dark:text-slate-400" />
+              <span className="text-sm text-slate-600 dark:text-slate-400">
+                © 2024 {myName}. Alle Rechte vorbehalten.
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 dark:text-slate-500">Entwickelt mit React, Next.js und Tailwind CSS</p>
+          </div>
+        </div>
       </footer>
       <BackToTopButton />
     </div>
